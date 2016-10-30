@@ -1,39 +1,22 @@
 #include "Student.h"
 
-
-//int CheckoutCount();
-////returns number of items student has checked out
-//
-////takes a string parameter to describe an item 
-//bool CheckOut(const string& item);
-////checks if item is in if it is, checks it out
-//
-////takes a string parameter to describe an item
-//bool CheckIn(const string& item);
-////checks if item is checked out and deletes the array if so.  a successful check in
-////returns true, if not it returns false.
-//
-////takes an item parameter
-//bool HasCheckedOut(const string& item);
-////checks if item is on the students checked out list
-//
-//void Clear();
-////clears the objects data 
-//
-////destructor
-//~Student();
-//
-
-
 Student::Student()
-{}
+{
+	idNumb = 0;
+	firstName = "";
+	lastName = "";
+	itemName = "";
+	aSize = 0;
+	numItems = 0;
+	pointy = NULL;
+}
 
 void Student::setID(unsigned int nID)
-{/*
-	if ((nID > 999) && (nID < 100001))*/
+{
+	if ((nID > 999) && (nID < 100001))
 		idNumb = nID;
-	/*else
-		cout << "Invalid ID Number.";*/
+	else
+		cout << "Invalid ID Number.";
 }
 
 void Student::setFirst(string nFirst)
@@ -128,17 +111,15 @@ Student::~Student()
 istream& operator>>(istream& in, Student& item)
 {	
 	item.Clear();
-	int newID = 0;
-	string first, last, itemOut;
-	int arrSize;
-	in >> newID >> first >> last >> item.aSize;
-	item.setID(newID);
+	string itemOut;
+	unsigned int id;
+	string first, last;
+	in >>id >> first >> last >> item.aSize;
+	item.setID(id);
 	item.setFirst(first);
 	item.setLast(last);
-	
 
-	
-	for (int i = 0; i < item.aSize; i++)
+		for (int i = 0; i < item.aSize; i++)
 	{
 		in >> itemOut;
 		item.CheckOut(itemOut);

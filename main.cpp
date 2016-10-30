@@ -23,20 +23,27 @@ void main()
 		cout << "failed to open file.";
 	if (!lin)
 		cout << "failed to open file.";
-	
+	int i = 0;
+	const int size = 100;
 	Student s1;
-
+	Student* students = new Student[size];
+	
 	while (in >> s1)
 	{
-		++totalStudents;
+		cout << s1;
 	}
+	//while (!in.eof())
+	//{
+	//	in >> students[totalStudents];
+	//	++totalStudents;
+	//}
+	
+	
 
-	Student *students = new Student[totalStudents];
-
-	for (int i = 0; i < totalStudents; i++)
-	{
-		in >> students[i];
-	}
+	//for (int i = 0; i < totalStudents; i++)
+	//{
+	//	students[i] = s1;
+	//}
 
 	in.close();
 

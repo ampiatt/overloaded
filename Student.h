@@ -13,7 +13,7 @@ protected:
 	string firstName, lastName, itemName;
 	unsigned int idNumb;
 	int numItems, aSize;
-	string* pointy;
+	string* pointy = NULL;
 public:
 	//default constructor
 	Student();
