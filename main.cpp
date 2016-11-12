@@ -1,94 +1,50 @@
-/*Alexandria Piatt
-10/30/16
-Program 4*/
-
-
-#include "Student.h"
+#include "OfficeSupplies.h"
+#include "Products.h"
+#include "Register.h"	
+#include "Shirts.h"
 
 using namespace std;
 
 void main()
 {
-	ifstream in("Students.txt");
-	ifstream rin("checkouts.txt");
-	ifstream lin("checkins.txt");
-	ofstream out("Updated_Students.txt");
-	unsigned int studentID;
-	string item;
-	int totalStudents = 0;
+	//Shirts shirt;
+	//OfficeSupplies supply;
+	//string si = "XL";
+	//string des = "CHIEFS";
+	//string des1 = "STAPLES";
 
-	if (!in)
-		cout << "failed to open file.";
-	if (!rin)
-		cout << "failed to open file.";
-	if (!lin)
-		cout << "failed to open file.";
-	int i = 0;
-	const int size = 100;
-	Student s1;
-	Student* students = new Student[size];
-	
-	while (in >> s1)
-	{
-		cout << s1;
-	}
-	//while (!in.eof())
-	//{
-	//	in >> students[totalStudents];
-	//	++totalStudents;
-	//}
-	
-	
+	//double p = 3.00;
+	//int q = 3;
+	//unsigned int c = 3000;
 
-	//for (int i = 0; i < totalStudents; i++)
-	//{
-	//	students[i] = s1;
-	//}
+	//double p1 = .25;
+	//int q1 = 15;
 
-	in.close();
+	//shirt.setPrice(p);
+	//shirt.setQuanity(q);
+	//shirt.setSize(si);
+	//shirt.setDescription(des);
 
-	while (rin.good())
-	{
-		rin >> studentID;
-		for (int i = 0; i < totalStudents; i++)
-		{
-			if (students[i].getID() == studentID)
-			{
-				rin >> item;
-				students[i].CheckOut(item);
-			}
-		}
-	}
+	//shirt.calculateTotal();
+	//shirt.print(cout);
+	//
+	//supply.setPrice(p1);
+	//supply.setQuanity(q1);
+	//supply.setType(des1);
+	//supply.setCount(c);
+	//supply.setDescription(des1);
 
-	while (lin.good())
-	{
-		lin >> item;
-		for (int i = 0; i < totalStudents; i++)
-		{
-			if (students[i].CheckIn(item))
-				break;
-		}
-	}
+	//supply.calculateTotal();
+	//supply.print(cout);
 
-	for (int i = 0; i < totalStudents; i++)
-		out << students[i];
+	ifstream in("products.txt");
+	ofstream out("receipt.txt");
 
+	Register r;
 
-	delete[] students;
-	students = NULL;
-	in.close();
-	rin.close();
-	lin.close();
-	out.close();
-
-
-	 
-	
-
+	r.addProduct(in);
+	//r.printReceipt(out);
 
 
 	
-
-
-
 }

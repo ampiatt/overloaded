@@ -26,11 +26,11 @@ void Register::addProduct(istream &in)
 		if (typeP == "SHIRT")
 		{
 			Shirts s;
-
-			//gavin why isnt my first getline working?
+			in.ignore();
+	
 			getline(in, description);
 			getline(in, size);
-			in.ignore();
+			//in.ignore();
 			in >> quantity;
 			in >> price;
 			s.setDescription(description);
@@ -55,6 +55,12 @@ void Register::addProduct(istream &in)
 		}
 		i++;
 		in >> typeP;
+	}
+
+	//trying to figure out why my array isnt working.
+S	for (int u = 0; u < numProducts; u++)
+	{
+		cout << products[i]->calculateTotal();
 	}
 
 }
